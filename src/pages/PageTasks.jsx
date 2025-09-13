@@ -5,6 +5,7 @@ import { LuCloudSun } from "react-icons/lu";
 import ContainerTask from "../components/ContainerTask";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
+import TaskItem from "../components/TaskItem";
 function PageTasks() {
   return (
     <div className="flex min-h-screen bg-[#818181]/20">
@@ -12,11 +13,13 @@ function PageTasks() {
       <div className="flex w-full flex-col gap-6 px-8">
         <Header />
         <ContainerTask>
-          <div>
+          <div className="flex flex-col gap-3">
             <h2 className="flex items-center gap-1 border-b-2 border-[#818181]/20 pb-2 text-sm font-semibold text-[#818181]">
               {" "}
               <LuSun size={20} /> Manhã
             </h2>
+
+            <TaskItem />
           </div>
 
           <div>
