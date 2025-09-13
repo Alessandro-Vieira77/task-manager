@@ -17,8 +17,6 @@ function PageTasks() {
     },
   });
 
-  console.log(tasks);
-
   return (
     <div className="flex min-h-screen bg-[#818181]/20">
       <Sidebar />
