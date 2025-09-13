@@ -1,3 +1,4 @@
+import { useQuery } from "@tanstack/react-query";
 import { FiMoon } from "react-icons/fi";
 import { LuSun } from "react-icons/lu";
 import { LuCloudSun } from "react-icons/lu";
@@ -6,7 +7,18 @@ import ContainerTask from "../components/ContainerTask";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 import TaskItem from "../components/TaskItem";
+import api from "../lib/axios";
 function PageTasks() {
+  const { data: tasks = [] } = useQuery({
+    queryKey: ["tasks"],
+    queryFn: async () => {
+      const response = await api.get("/tasks");
+      return response.data;
+    },
+  });
+
+  console.log(tasks);
+
   return (
     <div className="flex min-h-screen bg-[#818181]/20">
       <Sidebar />
@@ -18,22 +30,35 @@ function PageTasks() {
               {" "}
               <LuSun size={20} /> Manhã
             </h2>
+            <div className="flex w-full flex-col gap-3">
+              {tasks.map(
+                task => task?.time === "morning" && <TaskItem key={task?.id} task={task} />,
+              )}
+            </div>
 
             <TaskItem />
           </div>
 
-          <div>
+          <div className="flex flex-col gap-3">
             <h2 className="flex items-center gap-1 border-b-2 border-[#818181]/20 pb-2 text-sm font-semibold text-[#818181]">
               {" "}
               <LuCloudSun size={20} /> Tarde
             </h2>
+            <div className="flex w-full flex-col gap-3">
+              {tasks.map(
+                task => task?.time === "afternoon" && <TaskItem key={task?.id} task={task} />,
+              )}
+            </div>
           </div>
 
-          <div>
+          <div className="flex flex-col gap-3">
             <h2 className="flex items-center gap-1 border-b-2 border-[#818181]/20 pb-2 text-sm font-semibold text-[#818181]">
               {" "}
               <FiMoon size={20} /> Noite
             </h2>
+            <div className="flex w-full flex-col gap-3">
+              {tasks.map(task => task?.time === "night" && <TaskItem key={task?.id} task={task} />)}
+            </div>
           </div>
         </ContainerTask>
       </div>
