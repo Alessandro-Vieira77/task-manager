@@ -6,8 +6,8 @@ const taskItem = tv({
   base: "w-full rounded-lg p-3 text-sm",
   variants: {
     status: {
-      completed: "bg-[#00ADB5]/10 text-[#00ADB5]",
-      pending: "bg-[#FFAA04]/10 text-[#FFAA04]",
+      done: "bg-[#00ADB5]/10 text-[#00ADB5]",
+      in_progress: "bg-[#FFAA04]/10 text-[#FFAA04]",
       notStaged: "bg-[#818181]/10 text-[#818181]",
     },
   },
@@ -20,9 +20,9 @@ const box = tv({
   base: "relative flex h-7 w-7 cursor-pointer items-center justify-center rounded-lg",
   variants: {
     status: {
-      completed: "bg-[#00ADB5]",
-      pending: "bg-[#FFAA04] ",
-      notStaged: "bg-[#818181]",
+      done: "bg-[#00ADB5]",
+      in_progress: "bg-[#FFAA04] ",
+      notStaged: "bg-[#818181]/40",
     },
   },
   defaultVariants: {
@@ -30,19 +30,25 @@ const box = tv({
   },
 });
 
-function TaskItem() {
+function TaskItem({ task }) {
   return (
-    <div className={taskItem({ status: "completed" })}>
+    <div className={taskItem({ status: task?.status })}>
       <div className="flex items-center gap-2">
-        <label className={box({ status: "completed" })}>
+        <label className={box({ status: task?.status })}>
           <input
             type="checkbox"
             checked={true}
             className="absolute h-full w-full cursor-pointer opacity-0"
+            readOnly
           />
-          <span></span>
+          <span>
+            {task?.status === "done" && <MdOutlineDone size={16} color="#FFF" />}
+            {task?.status === "in_progress" && (
+              <AiOutlineLoading3Quarters size={16} className="animate-spin" color="#FFF" />
+            )}
+          </span>
         </label>
-        <p className="text-sm font-medium">aprendendo React</p>
+        <p className="text-sm font-medium">{task?.title}</p>
       </div>
     </div>
   );
