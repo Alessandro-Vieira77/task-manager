@@ -5,6 +5,7 @@ import { createPortal } from "react-dom";
 import { CSSTransition } from "react-transition-group";
 
 import Input from "../Input";
+import Select from "../Select";
 
 function AddTaskDailog({ inProp }) {
   const nodeRef = useRef(null);
@@ -20,6 +21,7 @@ function AddTaskDailog({ inProp }) {
             <form action="" className="w-full max-w-[336px] rounded-2xl bg-white p-6 shadow">
               <div className="flex w-full flex-col gap-4">
                 <Input title="Título" type="text" placeholder="Título da tarefa" />
+                <Select title="Hórario" />
                 <Input title="Descrição" type="text" placeholder="Descrição da tarefa" />
               </div>
             </form>
