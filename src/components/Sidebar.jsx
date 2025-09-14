@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function Sidebar() {
   return (
-    <div className="flex min-h-screen w-72 flex-col bg-white">
+    <div className="flex min-h-screen w-72 min-w-[272px] flex-col bg-white">
       <div className="m-7 flex flex-col gap-4">
         <h1 className="text-xl font-semibold text-[#00ADB5]">Task Manager</h1>
         <p className="text-xs">
