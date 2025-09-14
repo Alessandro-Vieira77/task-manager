@@ -1,10 +1,17 @@
 import "./style.css";
 
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useRef } from "react";
 import { createPortal } from "react-dom";
 import { useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { CSSTransition } from "react-transition-group";
+import { v4 as uuidv4 } from "uuid";
 
+import { mutationKey } from "../../key/mutation";
+import { queryKey } from "../../key/query";
+import api from "../../lib/axios";
 import Button from "../Button";
 import Input from "../Input";
 import Select from "../Select";
@@ -22,10 +29,34 @@ function AddTaskDailog({ inProp, onClose }) {
     },
   });
 
+  const queryClient = useQueryClient();
+  const { mutate: addTasks, isPending } = useMutation({
+    mutationKey: mutationKey.addTask(),
+    mutationFn: async data => {
+      const response = await api.post("/tasks", {
+        id: uuidv4(),
+        ...data,
+        status: "notStaged",
+      });
+
+      queryClient.setQueryData(queryKey.getTasks(), old => {
+        return [...old, response.data];
+      });
+      return response;
+    },
+    onSuccess: () => {
+      toast.success("Tarefa adicionada com sucesso");
+      onClose();
+    },
+    onError: () => {
+      toast.error("Erro ao adicionar tarefa");
+    },
+  });
+
   const nodeRef = useRef(null);
 
   const onSubmit = data => {
-    console.log(data);
+    addTasks(data);
   };
 
   return (
@@ -102,14 +133,24 @@ function AddTaskDailog({ inProp, onClose }) {
               <div className="flex w-full gap-3">
                 <Button
                   type="button"
-                  title="Cancelar"
                   color="third"
                   size="large"
                   onClick={() => {
                     onClose();
                   }}
-                />
-                <Button type="submit" title="Salvar" color="primary" size="large" />
+                >
+                  Cancelar
+                </Button>
+                <Button type="submit" color="primary" size="large">
+                  {isPending ? (
+                    <p className="flex items-center gap-1">
+                      <AiOutlineLoading3Quarters className="animate-spin" />
+                      Salvando...
+                    </p>
+                  ) : (
+                    "Salvar"
+                  )}
+                </Button>
               </div>
             </form>
           </div>,

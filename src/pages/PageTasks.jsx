@@ -7,10 +7,11 @@ import ContainerTask from "../components/ContainerTask";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 import TaskItem from "../components/TaskItem";
+import { queryKey } from "../key/query";
 import api from "../lib/axios";
 function PageTasks() {
   const { data: tasks = [] } = useQuery({
-    queryKey: ["tasks"],
+    queryKey: queryKey.getTasks(),
     queryFn: async () => {
       const response = await api.get("/tasks");
       return response.data;
@@ -29,12 +30,13 @@ function PageTasks() {
               <LuSun size={20} /> Manhã
             </h2>
             <div className="flex w-full flex-col gap-3">
+              {tasks.length === 0 && (
+                <p className="text-sm text-[#818181]">Sem tarefas no momento</p>
+              )}
               {tasks.map(
                 task => task?.time === "morning" && <TaskItem key={task?.id} task={task} />,
               )}
             </div>
-
-            <TaskItem />
           </div>
 
           <div className="flex flex-col gap-3">
@@ -43,6 +45,9 @@ function PageTasks() {
               <LuCloudSun size={20} /> Tarde
             </h2>
             <div className="flex w-full flex-col gap-3">
+              {tasks.length === 0 && (
+                <p className="text-sm text-[#818181]">Sem tarefas no momento</p>
+              )}
               {tasks.map(
                 task => task?.time === "afternoon" && <TaskItem key={task?.id} task={task} />,
               )}
@@ -55,6 +60,9 @@ function PageTasks() {
               <FiMoon size={20} /> Noite
             </h2>
             <div className="flex w-full flex-col gap-3">
+              {tasks.length === 0 && (
+                <p className="text-sm text-[#818181]">Sem tarefas no momento</p>
+              )}
               {tasks.map(task => task?.time === "night" && <TaskItem key={task?.id} task={task} />)}
             </div>
           </div>
