@@ -1,6 +1,6 @@
 import { tv } from "tailwind-variants";
 
-function Button({ title, color, size, icon, ...props }) {
+function Button({ children, color, size, ...props }) {
   const buttonTv = tv({
     base: "flex cursor-pointer items-center justify-center gap-1 rounded-lg  font-semibold ",
     variants: {
@@ -22,8 +22,7 @@ function Button({ title, color, size, icon, ...props }) {
 
   return (
     <button {...props} className={buttonTv({ color: color, size: size })}>
-      {title}
-      {icon}
+      {children}
     </button>
   );
 }

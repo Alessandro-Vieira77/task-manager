@@ -20,12 +20,14 @@ function Header() {
       </div>
 
       <div className="flex items-end gap-2">
-        <Button title="Limpar tarefas" icon={<FaRegTrashCan size={16} />} color="secondary" />
-        <Button
-          title="Criar Tarefa"
-          icon={<IoMdAdd size={16} />}
-          onClick={() => setInProp(!inProp)}
-        />
+        <Button color="secondary">
+          Limpar tarefas <FaRegTrashCan size={16} />
+        </Button>
+
+        <Button onClick={() => setInProp(!inProp)}>
+          Criar Tarefa
+          <IoMdAdd size={16} />
+        </Button>
         <AddTaskDailog inProp={inProp} onClose={onClose} />
       </div>
     </div>
