@@ -1,9 +1,14 @@
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import { FaRegTrashCan } from "react-icons/fa6";
 import { MdOutlineDone } from "react-icons/md";
+import { RiShareBoxFill } from "react-icons/ri";
+import { Link } from "react-router-dom";
 import { tv } from "tailwind-variants";
 
+import Button from "./Button";
+
 const taskItem = tv({
-  base: "w-full rounded-lg p-3 text-sm",
+  base: "flex  justify-between w-full rounded-lg p-3 text-sm",
   variants: {
     status: {
       done: "bg-[#00ADB5]/10 text-[#00ADB5]",
@@ -49,6 +54,14 @@ function TaskItem({ task }) {
           </span>
         </label>
         <p className="text-sm font-medium">{task?.title}</p>
+      </div>
+      <div className="flex items-center">
+        <Button color="secundary">
+          <FaRegTrashCan size={16} />
+        </Button>
+        <Link to={`/datail/${task?.id}`}>
+          <RiShareBoxFill size={16} />
+        </Link>
       </div>
     </div>
   );
