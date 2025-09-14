@@ -1,17 +1,12 @@
 import "./style.css";
 
-import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useRef } from "react";
 import { createPortal } from "react-dom";
 import { useForm } from "react-hook-form";
-import { toast } from "react-hot-toast";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { CSSTransition } from "react-transition-group";
-import { v4 as uuidv4 } from "uuid";
 
-import { mutationKey } from "../../key/mutation";
-import { queryKey } from "../../key/query";
-import api from "../../lib/axios";
+import useUpdate from "../../hooks/use-add-task";
 import Button from "../Button";
 import Input from "../Input";
 import Select from "../Select";
@@ -29,34 +24,13 @@ function AddTaskDailog({ inProp, onClose }) {
     },
   });
 
-  const queryClient = useQueryClient();
-  const { mutate: addTasks, isPending } = useMutation({
-    mutationKey: mutationKey.addTask(),
-    mutationFn: async data => {
-      const response = await api.post("/tasks", {
-        id: uuidv4(),
-        ...data,
-        status: "notStaged",
-      });
-
-      queryClient.setQueryData(queryKey.getTasks(), old => {
-        return [...old, response.data];
-      });
-      return response;
-    },
-    onSuccess: () => {
-      toast.success("Tarefa adicionada com sucesso");
-      onClose();
-    },
-    onError: () => {
-      toast.error("Erro ao adicionar tarefa");
-    },
-  });
+  const { mutate: addTasks, isPending } = useUpdate();
 
   const nodeRef = useRef(null);
 
   const onSubmit = data => {
     addTasks(data);
+    onClose();
   };
 
   return (
