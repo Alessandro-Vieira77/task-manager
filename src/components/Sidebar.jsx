@@ -20,10 +20,10 @@ function Sidebar() {
             Início
           </Link>
           <Link
-            to="/tasks"
+            to="/"
             className="flex items-center gap-2 rounded-lg bg-[#00ADB5]/20 px-6 py-3 font-semibold text-[#00ADB5]"
           >
-            <FaTasks size={24} />
+            <FaTasks to="/tasks" size={24} />
             Minhas tarefas
           </Link>
         </ul>

@@ -6,6 +6,7 @@ import { createRoot } from "react-dom/client";
 import { Toaster } from "react-hot-toast";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
+import Home from "./pages/Home";
 import PageDetails from "./pages/PageDetails";
 import PageTasks from "./pages/PageTasks";
 
@@ -14,6 +15,10 @@ const queryClient = new QueryClient();
 const router = createBrowserRouter([
   {
     path: "/",
+    element: <Home />,
+  },
+  {
+    path: "/tasks",
     element: <PageTasks />,
   },
   {
