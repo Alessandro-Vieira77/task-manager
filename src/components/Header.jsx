@@ -8,6 +8,10 @@ import Button from "./Button";
 function Header() {
   const [inProp, setInProp] = useState(false);
 
+  function onClose() {
+    setInProp(false);
+  }
+
   return (
     <div className="flex w-full flex-col justify-between gap-3 pt-16 lg:flex-row">
       <div className="flex flex-col gap-1">
@@ -22,7 +26,7 @@ function Header() {
           icon={<IoMdAdd size={16} />}
           onClick={() => setInProp(!inProp)}
         />
-        <AddTaskDailog inProp={inProp} />
+        <AddTaskDailog inProp={inProp} onClose={onClose} />
       </div>
     </div>
   );

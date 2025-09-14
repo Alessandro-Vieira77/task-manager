@@ -1,6 +1,6 @@
 function Input({ title, ...props }) {
   return (
-    <div className="flex w-full flex-col gap-2">
+    <div className="flex w-full flex-col gap-1">
       <label className="font-semibold text-[#35383E]">{title}</label>
       <input
         {...props}
