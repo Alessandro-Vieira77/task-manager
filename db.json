@@ -1,45 +1,10 @@
 {
   "tasks": [
     {
-      "id": "381bf279-608f-4e48-9f94-1038d586a93e",
-      "title": "teste 1",
-      "time": "morning",
-      "description": "teste 1",
-      "status": "notStaged"
-    },
-    {
       "id": "6fd34c05-a413-4e8f-bb8e-f9865ab10a1d",
       "title": "teste 2",
       "time": "afternoon",
       "description": "teste 2",
-      "status": "notStaged"
-    },
-    {
-      "id": "9959d7a8-3cc9-4e9d-b95a-5e66fd0f35fa",
-      "title": "teste 3",
-      "time": "night",
-      "description": "teste 3",
-      "status": "notStaged"
-    },
-    {
-      "id": "43d54acc-f9dd-4ed9-b99a-287237466769",
-      "title": "teste 1",
-      "time": "afternoon",
-      "description": "teste 5",
-      "status": "notStaged"
-    },
-    {
-      "id": "627f5cb2-3343-48c6-baa7-68e7a465203c",
-      "title": "teste tarde",
-      "time": "afternoon",
-      "description": "aaaaasdadsda",
-      "status": "notStaged"
-    },
-    {
-      "id": "c28411c5-fd0d-45c9-8bf2-897bd1ba012d",
-      "title": "teste tnoite ",
-      "time": "night",
-      "description": "aaaaasdadsda",
       "status": "notStaged"
     },
     {
@@ -57,41 +22,6 @@
       "status": "notStaged"
     },
     {
-      "id": "06f3a240-c312-4b08-8171-4b9094c60cec",
-      "title": "bola de fogo ",
-      "time": "afternoon",
-      "description": "teste 5",
-      "status": "notStaged"
-    },
-    {
-      "id": "825cfdfd-ed07-490c-b0f0-92686f9980ac",
-      "title": "milk or caffee",
-      "time": "morning",
-      "description": "teste 5",
-      "status": "notStaged"
-    },
-    {
-      "id": "29e04a50-0828-4173-bd15-d54b9aed675c",
-      "title": "teste ",
-      "time": "morning",
-      "description": "teste ",
-      "status": "notStaged"
-    },
-    {
-      "id": "31f3b9da-135b-400e-a56e-ef84d911e9d1",
-      "title": "water",
-      "time": "morning",
-      "description": "water ",
-      "status": "notStaged"
-    },
-    {
-      "id": "4a816ff4-40f1-4226-bd3e-e387acb2f474",
-      "title": "qeqwewqe",
-      "time": "morning",
-      "description": "eweqewqe",
-      "status": "notStaged"
-    },
-    {
       "id": "b4c332a4-568c-470d-a646-b57841f66608",
       "title": "bola 555",
       "time": "night",
@@ -99,31 +29,10 @@
       "status": "notStaged"
     },
     {
-      "id": "38401037-605c-4f16-bb83-672d29d0f928",
-      "title": "teste loading ",
+      "id": "179979ef-a952-4f7a-9e69-912f891d52ab",
+      "title": "bola de fogo ",
       "time": "night",
-      "description": "teste 1",
-      "status": "notStaged"
-    },
-    {
-      "id": "d2b59708-1138-4b92-84b1-1ca4db868f2a",
-      "title": "teste lento ",
-      "time": "night",
-      "description": "teste lento ",
-      "status": "notStaged"
-    },
-    {
-      "id": "70807bbf-8020-4561-89cc-37bc3c3f61d3",
-      "title": "teste rápido",
-      "time": "night",
-      "description": "teste 1",
-      "status": "notStaged"
-    },
-    {
-      "id": "6239fb27-8a84-4841-80e6-05294f40e9a1",
-      "title": "teste 22222",
-      "time": "night",
-      "description": "teste 2",
+      "description": "bola de fogo",
       "status": "notStaged"
     }
   ]

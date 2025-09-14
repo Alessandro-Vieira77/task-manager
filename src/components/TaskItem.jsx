@@ -5,6 +5,7 @@ import { RiShareBoxFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import { tv } from "tailwind-variants";
 
+import useDeleteTask from "../hooks/use-delete.-task";
 import Button from "./Button";
 
 const taskItem = tv({
@@ -36,6 +37,12 @@ const box = tv({
 });
 
 function TaskItem({ task }) {
+  const { mutate: deleteTask, isPending } = useDeleteTask();
+
+  const handleDelete = () => {
+    deleteTask(task?.id);
+  };
+
   return (
     <div className={taskItem({ status: task?.status })}>
       <div className="flex items-center gap-2">
@@ -56,8 +63,12 @@ function TaskItem({ task }) {
         <p className="text-sm font-medium">{task?.title}</p>
       </div>
       <div className="flex items-center">
-        <Button color="secundary">
-          <FaRegTrashCan size={16} />
+        <Button color="secundary" onClick={handleDelete}>
+          {isPending ? (
+            <AiOutlineLoading3Quarters size={16} className="animate-spin" color="#FFAA04" />
+          ) : (
+            <FaRegTrashCan size={16} />
+          )}
         </Button>
         <Link to={`/datail/${task?.id}`}>
           <RiShareBoxFill size={16} />
