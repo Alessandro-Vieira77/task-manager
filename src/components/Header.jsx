@@ -1,15 +1,22 @@
 import { useState } from "react";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { FaRegTrashCan } from "react-icons/fa6";
 import { IoMdAdd } from "react-icons/io";
 
+import useDeleteTaskAll from "../hooks/use-delete-task-all";
 import AddTaskDailog from "./addTaskDailog";
 import Button from "./Button";
 
 function Header() {
   const [inProp, setInProp] = useState(false);
+  const { mutate: deleteAll, isPending } = useDeleteTaskAll();
 
   function onClose() {
     setInProp(false);
+  }
+
+  function onDeleteAll() {
+    deleteAll();
   }
 
   return (
@@ -20,8 +27,17 @@ function Header() {
       </div>
 
       <div className="flex items-end gap-2">
-        <Button color="secondary">
-          Limpar tarefas <FaRegTrashCan size={16} />
+        <Button color="secondary" onClick={onDeleteAll}>
+          {isPending ? (
+            <p className="flex items-center gap-1">
+              <AiOutlineLoading3Quarters className="animate-spin" />
+              Deletando...
+            </p>
+          ) : (
+            <p className="flex items-center gap-1">
+              Limpar tarefas <FaRegTrashCan size={16} onClick={onDeleteAll} />
+            </p>
+          )}
         </Button>
 
         <Button onClick={() => setInProp(!inProp)}>
