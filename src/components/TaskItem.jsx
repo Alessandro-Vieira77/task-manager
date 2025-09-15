@@ -1,3 +1,5 @@
+import { useQueryClient } from "@tanstack/react-query";
+import { toast } from "react-hot-toast";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { FaRegTrashCan } from "react-icons/fa6";
 import { MdOutlineDone } from "react-icons/md";
@@ -6,6 +8,8 @@ import { Link } from "react-router-dom";
 import { tv } from "tailwind-variants";
 
 import useDeleteTask from "../hooks/use-delete.-task";
+import useUpdateTask from "../hooks/use-update-task";
+import { queryKey } from "../key/query";
 import Button from "./Button";
 
 const taskItem = tv({
@@ -38,15 +42,49 @@ const box = tv({
 
 function TaskItem({ task }) {
   const { mutate: deleteTask, isPending } = useDeleteTask();
+  const { mutate: updateTask } = useUpdateTask(task?.id);
 
   const handleDelete = () => {
     deleteTask(task?.id);
   };
 
+  function getStatus() {
+    let status;
+    if (task?.status === "notStaged") {
+      status = "in_progress";
+    }
+
+    if (task?.status === "in_progress") {
+      status = "done";
+    }
+
+    if (task?.status === "done") {
+      status = "notStaged";
+    }
+
+    return status;
+  }
+
+  const queryClient = useQueryClient();
+  const handleChangeStatus = () => {
+    const status = getStatus();
+
+    updateTask(status, {
+      onSuccess: () => {
+        queryClient.invalidateQueries(queryKey.getTasks());
+        toast.success("Tarefa atualizada com sucesso");
+      },
+      onError: error => {
+        toast.error("Erro ao atualizar tarefa");
+        console.log(error);
+      },
+    });
+  };
+
   return (
     <div className={taskItem({ status: task?.status })}>
       <div className="flex items-center gap-2">
-        <label className={box({ status: task?.status })}>
+        <label className={box({ status: task?.status })} onClick={handleChangeStatus}>
           <input
             type="checkbox"
             checked={true}
