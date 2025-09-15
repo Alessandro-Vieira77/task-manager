@@ -8,10 +8,11 @@ function Button({ children, color, size, ...props }) {
         primary: "bg-[#00ADB5] text-white",
         secondary: "bg-transparent text-[#818181]",
         third: "text-[#31383E] bg-[#818181]/20",
+        danger: "bg-[#FF5959] text-white",
       },
       size: {
-        large: "px-12 py-2 text-sm",
-        small: "px-3 py-1 text-xs",
+        large: "px-4 w-full py-2 text-sm",
+        small: "w-32 py-1 text-xs",
       },
     },
     defaultVariants: {
