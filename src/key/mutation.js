@@ -1,6 +1,6 @@
 export const mutationKey = {
   addTask: () => ["addTask"],
-  updateTask: () => ["updateTask"],
+  updateTask: id => ["updateTask", id],
   deleteTask: () => ["deleteTask"],
   deleteTaskAll: () => ["deleteTaskAll"],
 };
