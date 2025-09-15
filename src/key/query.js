@@ -1,3 +1,3 @@
 export const queryKey = {
-  getTasks: () => ["getTasks"],
+  getTasks: id => ["getTasks", id],
 };
