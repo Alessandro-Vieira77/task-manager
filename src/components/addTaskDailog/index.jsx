@@ -56,6 +56,11 @@ function AddTaskDailog({ inProp, onClose }) {
                 type="text"
                 placeholder="Título da tarefa"
                 {...register("title", {
+                  validate: value => {
+                    if (!value.trim()) {
+                      return "proíbido espaços em branco";
+                    }
+                  },
                   required: {
                     value: true,
                     message: "Campo obrigatório",
@@ -63,11 +68,6 @@ function AddTaskDailog({ inProp, onClose }) {
                   minLength: {
                     value: 3,
                     message: "Mínimo 3 caracteres",
-                  },
-                  validate: value => {
-                    if (!value.trim()) {
-                      return "proíbido espaços em branco";
-                    }
                   },
                 })}
               />
