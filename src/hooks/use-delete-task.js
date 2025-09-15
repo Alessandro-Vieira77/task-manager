@@ -12,7 +12,7 @@ function useDeletTask() {
     mutationFn: async id => {
       const { data: task } = await api.delete(`/tasks/${id}`);
 
-      queryClient.setQueryData(queryKey.getTasks(), old => {
+      queryClient.setQueryData(queryKey.getTasks("taskId"), old => {
         return old.filter(task => task.id !== id);
       });
 

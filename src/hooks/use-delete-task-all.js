@@ -17,7 +17,7 @@ function useDeleteTaskAll() {
         return tasksdelete;
       });
 
-      queryClient.setQueryData(queryKey.getTasks(), () => {
+      queryClient.setQueryData(queryKey.getTasks("taskId"), () => {
         return newTasks;
       });
 
