@@ -5,18 +5,22 @@ import { FaRegTrashCan } from "react-icons/fa6";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import Button from "../components/Button";
 import ContainerTask from "../components/ContainerTask";
 import Input from "../components/Input";
 import Select from "../components/Select";
 import Sidebar from "../components/Sidebar";
+import useDeleteTask from "../hooks/use-delete-task";
 import useGetTasks from "../hooks/use-get-tasks";
 
 function PageDetails() {
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const { data: task } = useGetTasks(id);
+  const { mutate: deleteTask, isPending } = useDeleteTask();
 
   const {
     register,
@@ -27,6 +31,14 @@ function PageDetails() {
   const onSubmit = data => {
     console.log(data);
   };
+
+  function deleteTaskHandler() {
+    deleteTask(id, {
+      onSuccess: () => {
+        navigate("/tasks");
+      },
+    });
+  }
 
   if (!task) {
     return (
@@ -61,8 +73,16 @@ function PageDetails() {
             </p>
             <div className="flex flex-col justify-between gap-2 lg:flex-row">
               <h1 className="text-xl font-semibold">{task?.title} </h1>
-              <Button color="danger" className="flex items-center gap-1">
-                <FaRegTrashCan size={16} />
+              <Button
+                color="danger"
+                className="flex items-center gap-1"
+                onClick={deleteTaskHandler}
+              >
+                {isPending ? (
+                  <AiOutlineLoading3Quarters className="animate-spin" size={16} />
+                ) : (
+                  <FaRegTrashCan size={16} />
+                )}
                 Deletar tarefa
               </Button>
             </div>

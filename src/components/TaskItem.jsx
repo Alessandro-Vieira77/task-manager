@@ -7,10 +7,9 @@ import { RiShareBoxFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import { tv } from "tailwind-variants";
 
-import useDeleteTask from "../hooks/use-delete.-task";
+import useDeleteTask from "../hooks/use-delete-task";
 import useUpdateTask from "../hooks/use-update-task";
 import { queryKey } from "../key/query";
-import Button from "./Button";
 
 const taskItem = tv({
   base: "flex  justify-between w-full rounded-lg p-3 text-sm",
