@@ -64,8 +64,8 @@ function PageDetails() {
   return (
     <div className="flex min-h-screen bg-[#818181]/20">
       <Sidebar />
-      <div className="flex w-full flex-col px-8">
-        <div className="flex w-full flex-col gap-6 pt-16">
+      <div className="flex w-full flex-col">
+        <div className="flex w-full flex-col gap-6 px-8 pt-16">
           {/* header */}
           <div className="flex flex-col gap-3">
             <Link to="/tasks">

@@ -1,32 +1,11 @@
 {
   "tasks": [
     {
-      "id": "61ad1eea-a291-4f97-a41a-19d2395a1a25",
-      "title": "Nodejs",
+      "id": "5e2ecbd6-8854-4a16-ac56-18ce7a280263",
+      "title": "tudo ok",
       "time": "morning",
-      "description": "back end",
-      "status": "notStaged"
-    },
-    {
-      "id": "3b4b8418-1c66-4059-a4f0-449685a4b4e8",
-      "title": "teste 2",
-      "time": "morning",
-      "description": "teste 2",
-      "status": "notStaged"
-    },
-    {
-      "id": "fe5b9e16-cdba-4290-8e93-2d9daf0807d3",
-      "title": "teste 4",
-      "time": "night",
-      "description": "teste 4",
-      "status": "notStaged"
-    },
-    {
-      "id": "768539ed-38c8-47f3-a83b-4dbe404b8f14",
-      "title": "teste 5",
-      "time": "afternoon",
-      "description": "teste 1",
-      "status": "notStaged"
+      "description": "zod...4",
+      "status": "in_progress"
     }
   ]
 }
