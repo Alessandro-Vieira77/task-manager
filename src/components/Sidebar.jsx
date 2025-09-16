@@ -1,8 +1,19 @@
 import { FaTasks } from "react-icons/fa";
 import { MdHome } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { tv } from "tailwind-variants";
 
 function Sidebar() {
+  const link = tv({
+    base: "flex items-center gap-2 rounded-lg px-6 py-3",
+    variants: {
+      active: {
+        true: "bg-[#00ADB5]/20 font-semibold text-[#00ADB5]",
+        false: "text-[#35383E]",
+      },
+    },
+  });
+
   return (
     <div className="flex min-h-screen w-72 min-w-[272px] flex-col bg-white">
       <div className="m-7 flex flex-col gap-4">
@@ -15,17 +26,24 @@ function Sidebar() {
 
       <nav className="px-2">
         <ul className="flex flex-col gap-2">
-          <Link to="/" className="flex items-center gap-2 rounded-lg px-6 py-3">
+          <NavLink
+            to="/"
+            className={({ isActive }) => {
+              return link({ active: isActive });
+            }}
+          >
             <MdHome size={24} />
             Início
-          </Link>
-          <Link
-            to="/"
-            className="flex items-center gap-2 rounded-lg bg-[#00ADB5]/20 px-6 py-3 font-semibold text-[#00ADB5]"
+          </NavLink>
+          <NavLink
+            to="/tasks"
+            className={({ isActive }) => {
+              return link({ active: isActive });
+            }}
           >
             <FaTasks to="/tasks" size={24} />
             Minhas tarefas
-          </Link>
+          </NavLink>
         </ul>
       </nav>
     </div>
