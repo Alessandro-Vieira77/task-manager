@@ -11,7 +11,7 @@ import { queryKey } from "../key/query";
 import api from "../lib/axios";
 function PageTasks() {
   const { data: tasks = [] } = useQuery({
-    queryKey: queryKey.getTasks(),
+    queryKey: queryKey.getTasks("taskId"),
     queryFn: async () => {
       const response = await api.get("/tasks");
       return response.data;
@@ -21,7 +21,7 @@ function PageTasks() {
   return (
     <div className="flex min-h-screen bg-[#818181]/20">
       <Sidebar />
-      <div className="flex w-full flex-col gap-6 px-8">
+      <div className="flex w-full flex-col gap-6 px-8 pt-16">
         <Header />
         <ContainerTask>
           <div className="flex flex-col gap-3">
