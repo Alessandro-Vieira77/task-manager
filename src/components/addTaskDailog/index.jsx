@@ -15,6 +15,7 @@ function AddTaskDailog({ inProp, onClose }) {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors: formErrors },
   } = useForm({
     defaultValues: {
@@ -29,8 +30,12 @@ function AddTaskDailog({ inProp, onClose }) {
   const nodeRef = useRef(null);
 
   const onSubmit = data => {
-    addTasks(data);
-    onClose();
+    addTasks(data, {
+      onSuccess: () => {
+        reset();
+        onClose();
+      },
+    });
   };
 
   return (
@@ -51,6 +56,7 @@ function AddTaskDailog({ inProp, onClose }) {
               </div>
 
               <Input
+                disabled={isPending}
                 error={formErrors?.title}
                 title="Título"
                 type="text"
@@ -72,6 +78,7 @@ function AddTaskDailog({ inProp, onClose }) {
                 })}
               />
               <Select
+                disabled={isPending}
                 error={formErrors?.time}
                 title="Hórario"
                 {...register("time", {
@@ -83,6 +90,7 @@ function AddTaskDailog({ inProp, onClose }) {
                 })}
               />
               <Input
+                disabled={isPending}
                 error={formErrors?.description}
                 title="Descrição"
                 type="text"
@@ -115,9 +123,9 @@ function AddTaskDailog({ inProp, onClose }) {
                 >
                   Cancelar
                 </Button>
-                <Button type="submit" color="primary" size="large">
+                <Button type="submit" color="primary" size="large" disabled={isPending}>
                   {isPending ? (
-                    <p className="flex items-center gap-1">
+                    <p className="flex cursor-no-drop items-center gap-1">
                       <AiOutlineLoading3Quarters className="animate-spin" />
                       Salvando...
                     </p>
