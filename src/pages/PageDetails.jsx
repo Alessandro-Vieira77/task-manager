@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { FaArrowLeft } from "react-icons/fa6";
 import { FaRegTrashCan } from "react-icons/fa6";
@@ -14,6 +15,7 @@ import Select from "../components/Select";
 import Sidebar from "../components/Sidebar";
 import useDeleteTask from "../hooks/use-delete-task";
 import useGetTasks from "../hooks/use-get-tasks";
+import useUpdateTask from "../hooks/use-update-task";
 
 function PageDetails() {
   const { id } = useParams();
@@ -21,6 +23,7 @@ function PageDetails() {
 
   const { data: task } = useGetTasks(id);
   const { mutate: deleteTask, isPending } = useDeleteTask();
+  const { mutate: updateTask, isPending: isUpdating } = useUpdateTask(id);
 
   const {
     register,
@@ -28,8 +31,12 @@ function PageDetails() {
     formState: { errors: formErros },
   } = useForm();
 
-  const onSubmit = data => {
-    console.log(data);
+  const handleUpdateTask = data => {
+    updateTask(data, {
+      onSuccess: () => {
+        toast.success("Tarefa atualizada com sucesso");
+      },
+    });
   };
 
   function deleteTaskHandler() {
@@ -57,8 +64,8 @@ function PageDetails() {
   return (
     <div className="flex min-h-screen bg-[#818181]/20">
       <Sidebar />
-      <div className="flex w-full flex-col px-8 py-8">
-        <div className="flex w-full flex-col gap-6">
+      <div className="flex w-full flex-col px-8">
+        <div className="flex w-full flex-col gap-6 pt-16">
           {/* header */}
           <div className="flex flex-col gap-3">
             <Link to="/tasks">
@@ -77,18 +84,24 @@ function PageDetails() {
                 color="danger"
                 className="flex items-center gap-1"
                 onClick={deleteTaskHandler}
+                disabled={isPending}
               >
                 {isPending ? (
-                  <AiOutlineLoading3Quarters className="animate-spin" size={16} />
+                  <p className="flex cursor-no-drop items-center gap-1">
+                    <AiOutlineLoading3Quarters className="animate-spin" size={16} />
+                    Deletando...
+                  </p>
                 ) : (
-                  <FaRegTrashCan size={16} />
+                  <p className="flex items-center gap-1">
+                    <FaRegTrashCan size={16} />
+                    Deletar tarefa
+                  </p>
                 )}
-                Deletar tarefa
               </Button>
             </div>
           </div>
           {/* task */}
-          <form className="flex w-full flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
+          <form className="flex w-full flex-col gap-4" onSubmit={handleSubmit(handleUpdateTask)}>
             <ContainerTask>
               <Input
                 defaultValue={task?.title}
@@ -147,7 +160,13 @@ function PageDetails() {
             </ContainerTask>
             <div className="min-w-[70px] self-end">
               <Button className="w-full" size="large" type="submit">
-                Salvar
+                {isUpdating ? (
+                  <p className="flex items-center gap-2">
+                    <AiOutlineLoading3Quarters className="animate-spin" size={16} /> salvando...
+                  </p>
+                ) : (
+                  "Salvar"
+                )}
               </Button>
             </div>
           </form>
