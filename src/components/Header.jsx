@@ -20,7 +20,7 @@ function Header() {
   }
 
   return (
-    <div className="flex w-full flex-col justify-between gap-3 pt-16 lg:flex-row">
+    <div className="flex w-full flex-col justify-between gap-3 lg:flex-row">
       <div className="flex flex-col gap-1">
         <h3 className="text-xs font-semibold text-[#00ADB5]">Minhas Tarefas</h3>
         <h2 className="text-xl font-semibold text-[#35383E]">Minhas Tarefas</h2>
@@ -29,13 +29,13 @@ function Header() {
       <div className="flex items-end gap-2">
         <Button color="secondary" onClick={onDeleteAll}>
           {isPending ? (
-            <p className="flex items-center gap-1">
+            <p className="flex cursor-no-drop items-center gap-1">
               <AiOutlineLoading3Quarters className="animate-spin" />
               Deletando...
             </p>
           ) : (
             <p className="flex items-center gap-1">
-              Limpar tarefas <FaRegTrashCan size={16} onClick={onDeleteAll} />
+              Limpar tarefas <FaRegTrashCan size={16} onClick={onDeleteAll} disabled={isPending} />
             </p>
           )}
         </Button>
