@@ -68,16 +68,18 @@ function TaskItem({ task }) {
   const handleChangeStatus = () => {
     const status = getStatus();
 
-    updateTask(status, {
-      onSuccess: () => {
-        queryClient.invalidateQueries(queryKey.getTasks());
-        toast.success("Tarefa atualizada com sucesso");
+    updateTask(
+      { status },
+      {
+        onSuccess: () => {
+          queryClient.invalidateQueries(queryKey.getTasks());
+        },
+        onError: error => {
+          toast.error("Erro ao atualizar tarefa");
+          console.log(error);
+        },
       },
-      onError: error => {
-        toast.error("Erro ao atualizar tarefa");
-        console.log(error);
-      },
-    });
+    );
   };
 
   return (
@@ -100,9 +102,11 @@ function TaskItem({ task }) {
         <p className="text-sm font-medium">{task?.title}</p>
       </div>
       <div className="flex items-center gap-2">
-        <button onClick={handleDelete}>
+        <button onClick={handleDelete} disabled={isPending}>
           {isPending ? (
-            <AiOutlineLoading3Quarters size={16} className="animate-spin" color="#FFAA04" />
+            <p className="flex cursor-no-drop items-center gap-1">
+              <AiOutlineLoading3Quarters size={16} className="animate-spin" color="#FFAA04" />
+            </p>
           ) : (
             <FaRegTrashCan size={16} />
           )}
