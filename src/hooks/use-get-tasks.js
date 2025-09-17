@@ -4,11 +4,11 @@ import { toast } from "react-hot-toast";
 import { queryKey } from "../key/query";
 import api from "../lib/axios";
 
-function useGetTasks(id) {
+function useGetTasks(id, route) {
   return useQuery({
     queryKey: queryKey.getTasks(id),
     queryFn: async () => {
-      const { data: tasks } = await api.get(`/tasks/${id}`);
+      const { data: tasks } = await api.get(route);
       return tasks;
     },
     onError: error => {
