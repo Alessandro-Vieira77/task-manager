@@ -14,16 +14,16 @@ import Input from "../components/Input";
 import Select from "../components/Select";
 import Sidebar from "../components/Sidebar";
 import useDeleteTask from "../hooks/use-delete-task";
-import useGetTasks from "../hooks/use-get-tasks";
+import useGetTaskId from "../hooks/use-get-taskId";
 import useUpdateTask from "../hooks/use-update-task";
 
 function PageDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const { data: task } = useGetTasks(id);
+  const { data: task } = useGetTaskId(id);
   const { mutate: deleteTask, isPending } = useDeleteTask();
-  const { mutate: updateTask, isPending: isUpdating } = useUpdateTask(id);
+  const { mutate: updateTask, isPending: isUpdating } = useUpdateTask(id, "/tasks/");
 
   const {
     register,

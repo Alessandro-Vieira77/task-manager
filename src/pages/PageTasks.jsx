@@ -11,7 +11,7 @@ import { queryKey } from "../key/query";
 import api from "../lib/axios";
 function PageTasks() {
   const { data: tasks = [] } = useQuery({
-    queryKey: queryKey.getTasks("taskId"),
+    queryKey: queryKey.getTasks("taskId", "/tasks"),
     queryFn: async () => {
       const response = await api.get("/tasks");
       return response.data;

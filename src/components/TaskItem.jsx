@@ -41,7 +41,7 @@ const box = tv({
 
 function TaskItem({ task }) {
   const { mutate: deleteTask, isPending } = useDeleteTask();
-  const { mutate: updateTask } = useUpdateTask(task?.id);
+  const { mutate: updateTask } = useUpdateTask(task?.id, "/tasks/");
 
   const handleDelete = () => {
     deleteTask(task?.id);
