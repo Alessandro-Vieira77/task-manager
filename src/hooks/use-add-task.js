@@ -18,7 +18,7 @@ function useUpdate() {
         status: "notStaged",
       });
 
-      queryClient.setQueryData(queryKey.getTasks("taskId"), old => {
+      queryClient.setQueryData(queryKey.getTasks("taskId"), (old = []) => {
         return [...old, task];
       });
       return task;
