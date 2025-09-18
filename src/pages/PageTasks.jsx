@@ -20,7 +20,7 @@ function PageTasks() {
   });
 
   return (
-    <div className="flex min-h-screen w-full bg-[#818181]/20">
+    <div className="bg-brand-background flex min-h-screen w-full">
       <div className="hidden lg:flex">
         <Sidebar />
       </div>
@@ -30,13 +30,13 @@ function PageTasks() {
         <Header />
         <ContainerTask>
           <div className="flex flex-col gap-3">
-            <h2 className="flex items-center gap-1 border-b-2 border-[#818181]/20 pb-2 text-sm font-semibold text-[#818181]">
+            <h2 className="border-brand-text-gray/20 text-brand-text-gray flex items-center gap-1 border-b-2 pb-2 text-sm font-semibold">
               {" "}
               <LuSun size={20} /> Manhã
             </h2>
             <div className="flex w-full flex-col gap-3">
               {tasks.length === 0 && (
-                <p className="text-sm text-[#818181]">Sem tarefas no momento</p>
+                <p className="text-brand-text-gray text-sm">Sem tarefas no momento</p>
               )}
               {tasks.map(
                 task => task?.time === "morning" && <TaskItem key={task?.id} task={task} />,
@@ -45,13 +45,13 @@ function PageTasks() {
           </div>
 
           <div className="flex flex-col gap-3">
-            <h2 className="flex items-center gap-1 border-b-2 border-[#818181]/20 pb-2 text-sm font-semibold text-[#818181]">
+            <h2 className="border-brand-text-gray/20 text-brand-text-gray flex items-center gap-1 border-b-2 pb-2 text-sm font-semibold">
               {" "}
               <LuCloudSun size={20} /> Tarde
             </h2>
             <div className="flex w-full flex-col gap-3">
               {tasks.length === 0 && (
-                <p className="text-sm text-[#818181]">Sem tarefas no momento</p>
+                <p className="text-brand-text-gray text-sm">Sem tarefas no momento</p>
               )}
               {tasks.map(
                 task => task?.time === "afternoon" && <TaskItem key={task?.id} task={task} />,
@@ -60,13 +60,13 @@ function PageTasks() {
           </div>
 
           <div className="flex flex-col gap-3">
-            <h2 className="flex items-center gap-1 border-b-2 border-[#818181]/20 pb-2 text-sm font-semibold text-[#818181]">
+            <h2 className="border-brand-text-gray/20 text-brand-text-gray flex items-center gap-1 border-b-2 pb-2 text-sm font-semibold">
               {" "}
               <FiMoon size={20} /> Noite
             </h2>
             <div className="flex w-full flex-col gap-3">
               {tasks.length === 0 && (
-                <p className="text-sm text-[#818181]">Sem tarefas no momento</p>
+                <p className="text-brand-text-gray text-sm">Sem tarefas no momento</p>
               )}
               {tasks.map(task => task?.time === "night" && <TaskItem key={task?.id} task={task} />)}
             </div>

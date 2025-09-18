@@ -14,10 +14,14 @@ function Menu() {
   return (
     <>
       <button
-        className="flex w-10 cursor-pointer items-center justify-center self-end rounded-sm bg-[#00ADB5] p-1 lg:hidden"
+        className="bg-brand-primary flex w-10 cursor-pointer items-center justify-center self-end rounded-sm p-1 lg:hidden"
         onClick={() => setOpen(!open)}
       >
-        {open ? <AiOutlineClose size={30} color="#FFF" /> : <IoMdMenu size={30} color="#FFF" />}
+        {open ? (
+          <AiOutlineClose size={30} color="var(--color-brand-white)" />
+        ) : (
+          <IoMdMenu size={30} color="var(--color-brand-white)" />
+        )}
       </button>
 
       <CSSTransition nodeRef={nodeRef} in={open} timeout={500} classNames="sidebar" unmountOnExit>

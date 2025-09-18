@@ -5,7 +5,7 @@ function Button({ children, color, size, ...props }) {
     base: "flex cursor-pointer items-center justify-center gap-1 rounded-lg  font-semibold ",
     variants: {
       color: {
-        primary: "bg-[#00ADB5] text-white",
+        primary: "bg-brand-primary text-white",
         secondary: "bg-transparent text-[#818181]",
         third: "text-[#31383E] bg-[#818181]/20",
         danger: "bg-[#FF5959] text-white",

@@ -2,10 +2,10 @@
   "tasks": [
     {
       "id": "2174fe69-8d3b-4a7b-8833-9192072b6ecf",
-      "title": "carros 2",
+      "title": "carros 3",
       "time": "morning",
       "description": "teste 1",
-      "status": "in_progress"
+      "status": "notStaged"
     }
   ],
   "water": [

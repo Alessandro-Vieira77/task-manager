@@ -1,6 +1,8 @@
 function ContainerTask({ children }) {
   return (
-    <div className="flex w-full flex-col gap-6 rounded-lg bg-white p-6 shadow">{children}</div>
+    <div className="bg-brand-white flex w-full flex-col gap-6 rounded-lg p-6 shadow">
+      {children}
+    </div>
   );
 }
 

@@ -4,3 +4,15 @@ html,
 body {
   font-family: "Poppins", sans-serif;
 }
+
+@theme {
+  /* colors */
+  --color-brand-primary: #00adb5;
+  --color-brand-background: #f8f8f8;
+  --color-brand-dark-Blue: #35383e;
+  --color-brand-text-gray: #818181;
+  --color-brand-light-gray: #eeeeee;
+  --color-brand-white: #ffffff;
+  --color-brand-process: #ffaa04;
+  --color-brand-danger: #ef4444;
+}

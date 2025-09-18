@@ -30,7 +30,7 @@ function Home() {
   const totalInProgressTasks = tasks?.filter(task => task.status === "in_progress").length;
 
   return (
-    <div className="flex min-h-screen w-full bg-[#818181]/20">
+    <div className="bg-brand-background flex min-h-screen w-full">
       <div className="hidden lg:flex">
         <Sidebar />
       </div>
@@ -49,16 +49,16 @@ function Home() {
         <div className="mb-6 flex w-full flex-col gap-8 lg:flex-row">
           <ContainerTask>
             <div>
-              <h2 className="text-xl font-semibold text-[#35383E]">Tarefas</h2>
-              <p className="text-sm text-[#818181]">Resumo das tarefas disponíveis</p>
+              <h2 className="text-brand-dark-Blue text-xl font-semibold">Tarefas</h2>
+              <p className="text-brand-text-gray text-sm">Resumo das tarefas disponíveis</p>
             </div>
             {tasks?.map(task => (
               <TaskItem key={task.id} task={task} />
             ))}
           </ContainerTask>
-          <div className="flex w-full flex-col gap-4 rounded-lg bg-white p-6 shadow lg:max-w-[420px]">
-            <h2 className="text-xl font-semibold text-[#35383E]">Água</h2>
-            <p className="text-sm text-[#818181]">Beba sua meta diária de água</p>
+          <div className="bg-brand-white flex w-full flex-col gap-4 rounded-lg p-6 shadow lg:max-w-[420px]">
+            <h2 className="text-brand-dark-Blue text-xl font-semibold">Água</h2>
+            <p className="text-brand-text-gray text-sm">Beba sua meta diária de água</p>
             <div className="flex justify-between">
               <div className="flex w-full flex-col gap-4">
                 {waterTasks?.map(task => (
@@ -66,10 +66,10 @@ function Home() {
                 ))}
               </div>
               <div className="flex items-center justify-end self-end">
-                <p className="text-xl font-semibold text-[#00ADB5]">
+                <p className="text-brand-primary text-xl font-semibold">
                   {waterTotal === 0.5 ? `500ml` : `${waterTotal}L`}
                 </p>
-                <span className="text-sm text-[#818181]">/7.5L</span>
+                <span className="text-brand-text-gray text-sm">/7.5L</span>
               </div>
             </div>
           </div>

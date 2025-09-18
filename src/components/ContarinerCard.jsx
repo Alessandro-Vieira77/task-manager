@@ -9,31 +9,35 @@ function ContainerCard({ percentageWater, totalTasks, totalDoneTasks, totalInPro
     <div className="flex w-full flex-col gap-8 lg:flex-row">
       <TaskCard>
         <div className="flex items-center gap-1">
-          <BsListTask size={24} color="#00ADB5" />
+          <BsListTask size={24} color="var(--color-brand-primary)" />
           <p className="text-3xl font-semibold">{totalTasks}</p>
         </div>
-        <p className="text-center text-[#818181]">Tareas Disponiveís</p>
+        <p className="text-brand-text-gray text-center">Tareas Disponiveís</p>
       </TaskCard>
       <TaskCard>
         <div className="flex items-center gap-1">
-          <GrTask size={24} color="#00ADB5" />
+          <GrTask size={24} color="var(--color-brand-primary)" />
           <p className="text-3xl font-semibold">{totalDoneTasks}</p>
         </div>
-        <p className="text-center text-[#818181]">Tarefas concluídas</p>
+        <p className="text-brand-text-gray text-center">Tarefas concluídas</p>
       </TaskCard>
       <TaskCard>
         <div className="flex items-center gap-1">
-          <AiOutlineLoading3Quarters size={24} color="#00ADB5" className="animate-spin" />
+          <AiOutlineLoading3Quarters
+            size={24}
+            color="var(--color-brand-primary)"
+            className="animate-spin"
+          />
           <p className="text-3xl font-semibold">{totalInProgressTasks}</p>
         </div>
-        <p className="text-center text-[#818181]">Tarefas em andamento</p>
+        <p className="text-brand-text-gray text-center">Tarefas em andamento</p>
       </TaskCard>
       <TaskCard>
         <div className="flex items-center gap-1">
-          <FaGlassWaterDroplet size={24} color="#00ADB5" />
+          <FaGlassWaterDroplet size={24} color="var(--color-brand-primary)" />
           <p className="text-3xl font-semibold">{percentageWater}%</p>
         </div>
-        <p className="text-center text-[#818181]">Água</p>
+        <p className="text-brand-text-gray text-center">Água</p>
       </TaskCard>
     </div>
   );

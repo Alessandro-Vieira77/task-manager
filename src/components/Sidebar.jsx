@@ -8,19 +8,19 @@ function Sidebar() {
     base: "flex items-center gap-2 rounded-lg px-6 py-3",
     variants: {
       active: {
-        true: "bg-[#00ADB5]/20 font-semibold text-[#00ADB5]",
-        false: "text-[#35383E]",
+        true: "bg-brand-primary/20 font-semibold text-brand-primary",
+        false: "text-brand-dark-Blue",
       },
     },
   });
 
   return (
-    <div className="flex min-h-screen w-72 min-w-[272px] flex-col bg-white">
+    <div className="bg-brand-white flex min-h-screen w-72 min-w-[272px] flex-col">
       <div className="m-7 flex flex-col gap-4">
-        <h1 className="text-xl font-semibold text-[#00ADB5]">Task Manager</h1>
+        <h1 className="text-brand-primary text-xl font-semibold">Task Manager</h1>
         <p className="text-xs">
           Um simples{" "}
-          <span className="text-xs font-semibold text-[#00ADB5]">organizador de tarefas</span>
+          <span className="text-brand-primary text-xs font-semibold">organizador de tarefas</span>
         </p>
       </div>
 

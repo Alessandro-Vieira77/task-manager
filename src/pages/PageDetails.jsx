@@ -56,14 +56,16 @@ function PageDetails() {
             <AiOutlineLoading3Quarters className="animate-spin" size={24} />
             <h1 className="text-2xl font-bold">Carregando...</h1>
           </div>
-          <p className="text-xs text-[#818181]">Aguarde, estamos carregando os dados da tarefa</p>
+          <p className="text-brand-text-gray text-xs">
+            Aguarde, estamos carregando os dados da tarefa
+          </p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="flex min-h-screen bg-[#818181]/20">
+    <div className="bg-brand-background flex min-h-screen">
       <div className="hidden lg:flex">
         <Sidebar />
       </div>
@@ -74,14 +76,14 @@ function PageDetails() {
           {/* header */}
           <div className="flex flex-col gap-3">
             <Link to="/tasks">
-              <div className="flex h-7 w-7 items-center justify-center rounded-full bg-[#00ADb5]">
-                <FaArrowLeft size={20} color="#FFF" />
+              <div className="bg-brand-primary flex h-7 w-7 items-center justify-center rounded-full">
+                <FaArrowLeft size={20} color="var(--color-brand-white)" />
               </div>
             </Link>
-            <p className="flex items-center text-xs text-[#818181]">
+            <p className="text-brand-text-gray flex items-center text-xs">
               Minhas tarefas
               <MdKeyboardArrowRight size={20} />
-              <span className="text-xs font-semibold text-[#00ADb5]">{task?.title}</span>
+              <span className="text-brand-primary text-xs font-semibold">{task?.title}</span>
             </p>
             <div className="flex flex-col justify-between gap-2 lg:flex-row">
               <h1 className="text-xl font-semibold">{task?.title} </h1>

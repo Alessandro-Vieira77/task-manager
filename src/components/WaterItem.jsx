@@ -10,8 +10,8 @@ const taskItem = tv({
   base: "flex max-w-30  justify-between rounded-lg p-3 text-sm",
   variants: {
     status: {
-      done: "bg-[#00ADB5]/10 text-[#00ADB5]",
-      notStaged: "bg-[#818181]/10 text-[#818181]",
+      done: "bg-brand-primary/10 text-brand-primary",
+      notStaged: "bg-brand-text-gray/10 text-brand-text-gray",
     },
   },
   defaultVariants: {
@@ -23,8 +23,8 @@ const box = tv({
   base: "relative flex h-7 w-7 cursor-pointer items-center justify-center rounded-lg",
   variants: {
     status: {
-      done: "bg-[#00ADB5]",
-      notStaged: "bg-[#818181]/40",
+      done: "bg-brand-primary",
+      notStaged: "bg-brand-text-gray/40",
     },
   },
   defaultVariants: {

@@ -15,9 +15,9 @@ const taskItem = tv({
   base: "flex  justify-between w-full rounded-lg p-3 text-sm",
   variants: {
     status: {
-      done: "bg-[#00ADB5]/10 text-[#00ADB5]",
-      in_progress: "bg-[#FFAA04]/10 text-[#FFAA04]",
-      notStaged: "bg-[#818181]/10 text-[#818181]",
+      done: "bg-brand-primary/10 text-brand-primary",
+      in_progress: "bg-brand-process/10 text-brand-process",
+      notStaged: "bg-brand-text-gray/10 text-brand-text-gray",
     },
   },
   defaultVariants: {
@@ -29,9 +29,9 @@ const box = tv({
   base: "relative flex h-7 w-7 cursor-pointer items-center justify-center rounded-lg",
   variants: {
     status: {
-      done: "bg-[#00ADB5]",
-      in_progress: "bg-[#FFAA04] ",
-      notStaged: "bg-[#818181]/40",
+      done: "bg-brand-primary",
+      in_progress: "bg-brand-process",
+      notStaged: "bg-brand-text-gray/40",
     },
   },
   defaultVariants: {
@@ -93,9 +93,15 @@ function TaskItem({ task }) {
             readOnly
           />
           <span>
-            {task?.status === "done" && <MdOutlineDone size={16} color="#FFF" />}
+            {task?.status === "done" && (
+              <MdOutlineDone size={16} color="var(--color-brand-white)" />
+            )}
             {task?.status === "in_progress" && (
-              <AiOutlineLoading3Quarters size={16} className="animate-spin" color="#FFF" />
+              <AiOutlineLoading3Quarters
+                size={16}
+                className="animate-spin"
+                color="var(--color-brand-white)"
+              />
             )}
           </span>
         </label>
@@ -105,7 +111,11 @@ function TaskItem({ task }) {
         <button onClick={handleDelete} disabled={isPending}>
           {isPending ? (
             <p className="flex cursor-no-drop items-center gap-1">
-              <AiOutlineLoading3Quarters size={16} className="animate-spin" color="#FFAA04" />
+              <AiOutlineLoading3Quarters
+                size={16}
+                className="animate-spin"
+                color="var(--color-brand-process)"
+              />
             </p>
           ) : (
             <FaRegTrashCan size={16} />

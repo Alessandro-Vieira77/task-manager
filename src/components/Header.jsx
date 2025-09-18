@@ -22,8 +22,8 @@ function Header() {
   return (
     <div className="flex w-full flex-col justify-between gap-3 lg:flex-row">
       <div className="flex flex-col gap-1">
-        <h3 className="text-xs font-semibold text-[#00ADB5]">Minhas Tarefas</h3>
-        <h2 className="text-xl font-semibold text-[#35383E]">Minhas Tarefas</h2>
+        <h3 className="text-brand-primary text-xs font-semibold">Minhas Tarefas</h3>
+        <h2 className="text-brand-dark-Blue text-xl font-semibold">Minhas Tarefas</h2>
       </div>
 
       <div className="flex items-end gap-2">
