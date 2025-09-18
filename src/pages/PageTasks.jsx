@@ -5,6 +5,7 @@ import { LuCloudSun } from "react-icons/lu";
 
 import ContainerTask from "../components/ContainerTask";
 import Header from "../components/Header";
+import Menu from "../components/menu";
 import Sidebar from "../components/Sidebar";
 import TaskItem from "../components/TaskItem";
 import { queryKey } from "../key/query";
@@ -19,9 +20,13 @@ function PageTasks() {
   });
 
   return (
-    <div className="flex min-h-screen bg-[#818181]/20">
-      <Sidebar />
-      <div className="flex w-full flex-col gap-6 px-8 pt-16">
+    <div className="flex min-h-screen w-full bg-[#818181]/20">
+      <div className="hidden lg:flex">
+        <Sidebar />
+      </div>
+
+      <div className="flex w-full flex-col gap-6 px-4 pt-8 sm:px-8 lg:pt-16">
+        <Menu />
         <Header />
         <ContainerTask>
           <div className="flex flex-col gap-3">

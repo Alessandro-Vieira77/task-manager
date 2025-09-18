@@ -1,31 +1,10 @@
 {
   "tasks": [
     {
-      "id": "5e2ecbd6-8854-4a16-ac56-18ce7a280263",
-      "title": "tudo ok",
+      "id": "2174fe69-8d3b-4a7b-8833-9192072b6ecf",
+      "title": "carros 2",
       "time": "morning",
-      "description": "zod...4",
-      "status": "done"
-    },
-    {
-      "id": "be873f62-e64f-4597-bbad-575d2440f8a8",
-      "title": "Bola da compa do mundo 2",
-      "time": "afternoon",
-      "description": "bola",
-      "status": "in_progress"
-    },
-    {
-      "id": "63f3fc2e-067c-4a4e-80dd-104f2fc59d41",
-      "title": "nodejs",
-      "time": "morning",
-      "description": "javascript",
-      "status": "done"
-    },
-    {
-      "id": "8844480c-23a7-4c55-8275-93312ffa7a49",
-      "title": "Noite",
-      "time": "night",
-      "description": "Noite",
+      "description": "teste 1",
       "status": "in_progress"
     }
   ],
@@ -46,19 +25,19 @@
       "id": "3",
       "title": "1,5 litros",
       "value": 1.5,
-      "status": "notStaged"
+      "status": "done"
     },
     {
       "id": "4",
       "title": "2 litros",
       "value": 2,
-      "status": "notStaged"
+      "status": "done"
     },
     {
       "id": "5",
       "title": "2,5 litros",
       "value": 2.5,
-      "status": "notStaged"
+      "status": "done"
     }
   ]
 }

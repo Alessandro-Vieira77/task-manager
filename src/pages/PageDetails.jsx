@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import ContainerTask from "../components/ContainerTask";
 import Input from "../components/Input";
+import Menu from "../components/menu";
 import Select from "../components/Select";
 import Sidebar from "../components/Sidebar";
 import useDeleteTask from "../hooks/use-delete-task";
@@ -63,9 +64,13 @@ function PageDetails() {
 
   return (
     <div className="flex min-h-screen bg-[#818181]/20">
-      <Sidebar />
+      <div className="hidden lg:flex">
+        <Sidebar />
+      </div>
+
       <div className="flex w-full flex-col">
-        <div className="flex w-full flex-col gap-6 px-8 pt-16">
+        <div className="flex w-full flex-col gap-6 px-4 pt-8 sm:px-8 lg:pt-16">
+          <Menu />
           {/* header */}
           <div className="flex flex-col gap-3">
             <Link to="/tasks">
