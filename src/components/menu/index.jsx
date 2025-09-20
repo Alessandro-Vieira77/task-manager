@@ -10,11 +10,22 @@ import Sidebar from "../Sidebar";
 
 function Menu() {
   const [open, setOpen] = useState(false);
+
+  function dysplayButton() {
+    if (!open) {
+      return "flex";
+    }
+
+    if (open) {
+      return "hidden";
+    }
+  }
+
   const nodeRef = useRef(null);
   return (
     <>
       <button
-        className="bg-brand-primary flex w-10 cursor-pointer items-center justify-center self-end rounded-sm p-1 lg:hidden"
+        className={`bg-brand-primary w-10 cursor-pointer items-center justify-center self-end rounded-sm p-1 lg:hidden ${dysplayButton()}`}
         onClick={() => setOpen(!open)}
       >
         {open ? (
@@ -28,7 +39,7 @@ function Menu() {
         <div>
           {createPortal(
             <div className="sideBar" ref={nodeRef}>
-              <Sidebar />
+              <Sidebar open={open} setOpen={setOpen} />
             </div>,
             document.body,
           )}
