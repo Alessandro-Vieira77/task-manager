@@ -1,3 +1,5 @@
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
+
 import ContainerTask from "../components/ContainerTask";
 import ContainerCard from "../components/ContarinerCard";
 import Header from "../components/Header";
@@ -8,7 +10,7 @@ import WaterItem from "../components/WaterItem";
 import useGetTasks from "../hooks/use-get-tasks";
 
 function Home() {
-  const { data: tasks } = useGetTasks("taskId", "/tasks");
+  const { data: tasks, isPending } = useGetTasks("taskId", "/tasks");
   const { data: waterTasks } = useGetTasks("waterTaskId", "/water");
 
   const waterTotal = waterTasks?.reduce((acc, task) => {
@@ -28,6 +30,20 @@ function Home() {
   const totalTasks = tasks?.length;
   const totalDoneTasks = tasks?.filter(task => task.status === "done").length;
   const totalInProgressTasks = tasks?.filter(task => task.status === "in_progress").length;
+
+  if (isPending) {
+    return (
+      <div className="flex h-screen items-center justify-center">
+        <div className="flex flex-col items-center justify-center gap-2">
+          <div className="flex items-center gap-2">
+            <AiOutlineLoading3Quarters className="animate-spin" size={24} />
+            <h1 className="text-2xl font-bold">Carregando...</h1>
+          </div>
+          <p className="text-brand-text-gray text-xs">Aguarde, estamos carregando os dados</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="bg-brand-background flex min-h-screen w-full">

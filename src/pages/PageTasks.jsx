@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { FiMoon } from "react-icons/fi";
 import { LuSun } from "react-icons/lu";
 import { LuCloudSun } from "react-icons/lu";
@@ -10,14 +11,31 @@ import Sidebar from "../components/Sidebar";
 import TaskItem from "../components/TaskItem";
 import { queryKey } from "../key/query";
 import api from "../lib/axios";
+
 function PageTasks() {
-  const { data: tasks = [] } = useQuery({
+  const { data: tasks = [], isPending } = useQuery({
     queryKey: queryKey.getTasks("taskId", "/tasks"),
     queryFn: async () => {
       const response = await api.get("/tasks");
       return response.data;
     },
   });
+
+  if (isPending) {
+    return (
+      <div className="flex h-screen items-center justify-center">
+        <div className="flex flex-col items-center justify-center gap-2">
+          <div className="flex items-center gap-2">
+            <AiOutlineLoading3Quarters className="animate-spin" size={24} />
+            <h1 className="text-2xl font-bold">Carregando...</h1>
+          </div>
+          <p className="text-brand-text-gray text-xs">
+            Aguarde, estamos carregando os dados das tarefas
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="bg-brand-background flex min-h-screen w-full">

@@ -22,7 +22,7 @@ function PageDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const { data: task } = useGetTaskId(id);
+  const { data: task, isPending: isPendingTask } = useGetTaskId(id);
   const { mutate: deleteTask, isPending } = useDeleteTask();
   const { mutate: updateTask, isPending: isUpdating } = useUpdateTask(id, "/tasks/");
 
@@ -48,7 +48,7 @@ function PageDetails() {
     });
   }
 
-  if (!task) {
+  if (isPendingTask) {
     return (
       <div className="flex h-screen items-center justify-center">
         <div className="flex flex-col items-center justify-center gap-2">

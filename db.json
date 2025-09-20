@@ -32,19 +32,19 @@
       "id": "3",
       "title": "1,5 litros",
       "value": 1.5,
-      "status": "done"
+      "status": "notStaged"
     },
     {
       "id": "4",
       "title": "2 litros",
       "value": 2,
-      "status": "done"
+      "status": "notStaged"
     },
     {
       "id": "5",
       "title": "2,5 litros",
       "value": 2.5,
-      "status": "done"
+      "status": "notStaged"
     }
   ]
 }
