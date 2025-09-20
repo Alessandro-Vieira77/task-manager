@@ -118,7 +118,7 @@ function TaskItem({ task }) {
               />
             </p>
           ) : (
-            <FaRegTrashCan size={16} />
+            <FaRegTrashCan className="cursor-pointer" size={16} />
           )}
         </button>
         <Link to={`/datail/${task?.id}`}>
