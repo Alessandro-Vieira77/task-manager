@@ -48,7 +48,7 @@ function AddTaskDailog({ inProp, onClose }) {
           >
             <form
               onSubmit={handleSubmit(onSubmit)}
-              className="bg-brand-white flex w-full max-w-[336px] flex-col gap-4 rounded-2xl p-6 shadow"
+              className="bg-brand-white mx-3 flex w-full max-w-[336px] flex-col gap-4 rounded-2xl p-6 shadow"
             >
               <div className="flex w-full flex-col items-center justify-center gap-1">
                 <h2 className="text-brand-dark-Blue text-xl font-semibold">Nova Tarefa</h2>
