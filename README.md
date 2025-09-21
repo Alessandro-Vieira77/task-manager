@@ -1,12 +1,77 @@
-# React + Vite
+![task manager](https://i.imgur.com/p1P9758.png)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+#### Technologies:  
+ ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white) ![React Query](https://img.shields.io/badge/-React%20Query-FF4154?style=for-the-badge&logo=react%20query&logoColor=white) [![React Router](https://img.shields.io/badge/React%20Router-^6.x-CA4245?logo=react-router&logoColor=white)](https://reactrouter.com/) ![Axios](https://img.shields.io/badge/Axios-^1.x-5A29E4?logo=axios&logoColor=white) [![json-server](https://img.shields.io/badge/json--server-^1.x-000000?logo=npm&logoColor=white)](https://github.com/typicode/json-server) [![React Hook Form](https://img.shields.io/badge/React%20Hook%20Form-^7.x-EC5990?logo=reacthookform&logoColor=white)](https://react-hook-form.com/) [![Tailwind Variants](https://img.shields.io/badge/Tailwind%20Variants-^1.x-38B2AC?logo=tailwindcss&logoColor=white)](https://github.com/nextui-org/tailwind-variants) [![React Transition Group](https://img.shields.io/badge/React%20Transition%20Group-^4.x-61DAFB?logo=react&logoColor=white)](https://reactcommunity.org/react-transition-group/) [![React Hot Toast](https://img.shields.io/badge/React%20Hot%20Toast-^2.x-FF5722?logo=react&logoColor=white)](https://react-hot-toast.com/) [![React Icons](https://img.shields.io/badge/React%20Icons-^4.x-61DAFB?logo=react&logoColor=white)](https://react-icons.github.io/react-icons/) [![UUID](https://img.shields.io/badge/UUID-^9.x-000000?logo=npm&logoColor=white)](https://www.npmjs.com/package/uuid)
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+
+
+
+# ✔️ Task Manager
+
+## Description
+This application was developed to manage tasks and track daily water intake.
+Built with React and JavaScript, it helps users stay organized and manage their time more efficiently, promoting a more productive routine.
+
+## Installation introduction
+### prerequisites
+- node@22.0.0 or +
+- npm@10.9.2 or +
+### Staps
+#### Download the project
+```bash
+git clone https://github.com/Alessandro-Vieira77/task-manager.git
+```
+#### Access the project folder
+```bash
+cd task-manager
+```
+#### Install dependencies
+```bash
+npm install 
+```
+or 
+#### Install exactly the versions listed in package-lock.json. Avoiding version conflicts.
+```bash
+npm ci 
+```
+### Usage introduction
+#### Start project
+```bash
+npm run dev
+```
+#### Start server
+```bash
+npx json-server db.json
+```
+# Use
+#### Open the application
+  
+  ![page home task manager](https://i.imgur.com/yV0rGvH.png)
+  #### On the home page you can
+  - Create tasks and delete all tasks 
+  - View the number of tasks on cards according to their status
+  - View tasks, add task status, delete task and access details
+  - View and track your daily water goal
+
+  ![page my tasks](https://i.imgur.com/kK725yj.png)
+  #### On the my tasks page you can
+  - Create tasks and delete all tasks
+  - Ciew tasks and their shifts: morning, afternoon and evening
+  - View tasks, add task status, delete task and access details
+
+  ![page detail tasks](https://i.imgur.com/i9UK7HK.png)
+  #### On the details tasks page  you can
+  - Back
+  - Delete the task
+  - update the task and save
+
+## License
+This project is licensed under the:  
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+
+
