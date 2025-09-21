@@ -1,12 +1,34 @@
-# React + Vite
+![task manager](https://i.imgur.com/p1P9758.png)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# ✔️ Task Manager
 
-Currently, two official plugins are available:
+## Description
+This application was developed to manage tasks and track daily water intake.
+Built with React and JavaScript, it helps users stay organized and manage their time more efficiently, promoting a more productive routine.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Installation introduction
+### prerequisites
+- node@22.0.0 or +
+- npm@10.9.2 or +
+### Staps
+#### Download the project
+```bash
+git clone https://github.com/Alessandro-Vieira77/task-manager.git
+```
+#### Access the project folder
+```bash
+cd task-manager
+```
+#### Install dependencies
+```bash
+npm install 
+```
+### Usage introduction
+#### Start project
+```bash
+npm run dev
+```
+#### Start server
+```bash
+npx json-server db.json
+```
