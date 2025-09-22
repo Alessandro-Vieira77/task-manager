@@ -1,20 +1,5 @@
 {
-  "tasks": [
-    {
-      "id": "2174fe69-8d3b-4a7b-8833-9192072b6ecf",
-      "title": "carros 6",
-      "time": "morning",
-      "description": "teste 1",
-      "status": "notStaged"
-    },
-    {
-      "id": "feb79676-6726-4b53-bb37-67583d863463",
-      "title": "bolo de maçã",
-      "time": "afternoon",
-      "description": "teste 1",
-      "status": "notStaged"
-    }
-  ],
+  "tasks": [],
   "water": [
     {
       "id": "1",

@@ -12,13 +12,14 @@ function useDeleteTaskAll() {
     mutationFn: async () => {
       const { data: tasks } = await api.get("/tasks");
 
-      const newTasks = tasks.map(async task => {
-        const { data: tasksdelete } = await api.delete(`/tasks/${task.id}`);
-        return tasksdelete;
-      });
-
+      const newTasks = await Promise.all(
+        tasks.map(async task => {
+          const { data: tasksdelete } = await api.delete(`/tasks/${task.id}`);
+          return tasksdelete;
+        }),
+      );
       queryClient.setQueryData(queryKey.getTasks("taskId"), () => {
-        return newTasks;
+        return [];
       });
 
       return newTasks;
