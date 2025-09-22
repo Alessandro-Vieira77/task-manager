@@ -71,6 +71,12 @@ npx json-server db.json
   - Delete the task
   - update the task and save
 
+  #### Fully responsive design
+  <img src="https://i.imgur.com/WvUIASF.png" alt="home page" width="300"  />
+  <img src="https://i.imgur.com/SGNsoDr.png" alt="task page" width="300" />
+  <img src="https://i.imgur.com/NUtai4D.png" alt="details page" width="300" />
+  
+
 ## License
 This project is licensed under the:  
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE.md)
