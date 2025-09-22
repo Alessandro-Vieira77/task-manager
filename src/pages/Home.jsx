@@ -68,9 +68,11 @@ function Home() {
               <h2 className="text-brand-dark-Blue text-xl font-semibold">Tarefas</h2>
               <p className="text-brand-text-gray text-sm">Resumo das tarefas disponíveis</p>
             </div>
-            {tasks?.map(task => (
-              <TaskItem key={task.id} task={task} />
-            ))}
+            {tasks?.length === 0 ? (
+              <p className="text-brand-text-gray text-sm">Nenhuma tarefa disponível</p>
+            ) : (
+              tasks?.map(task => <TaskItem key={task.id} task={task} />)
+            )}
           </ContainerTask>
           <div className="bg-brand-white flex w-full flex-col gap-4 rounded-lg p-6 shadow lg:max-w-[420px]">
             <h2 className="text-brand-dark-Blue text-xl font-semibold">Água</h2>
